@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NAEM ACEM Survey 2025 | Training Evaluation</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>NAEM ACEM Training Effectiveness Survey 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
     * {
         margin: 0;
@@ -17,11 +17,9 @@
         --primary-light: #00ffcc;
         --primary-dark: #00a085;
         --accent: #ff6b9d;
-        --accent-light: #ff8fb5;
         --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #442547 100%);
+        --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
         --bg-light: #fafbff;
         --bg-white: #ffffff;
         --text-primary: #1a202c;
@@ -41,10 +39,8 @@
         --primary-light: #5fffd9;
         --primary-dark: #00d4aa;
         --accent: #ff6b9d;
-        --accent-light: #ff8fb5;
         --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
         --gradient-hero: linear-gradient(135deg, #1a1f3a 0%, #2d1f3a 50%, #3a1f2d 100%);
         --bg-light: #0a0e1a;
         --bg-white: #141824;
@@ -67,11 +63,7 @@
         transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s;
     }
 
-    .bengali {
-        font-family: 'Noto Sans Bengali', sans-serif;
-    }
-
-    /* Animated Background Particles */
+    /* Animated Background */
     .particles {
         position: fixed;
         top: 0;
@@ -217,11 +209,9 @@
         top: 1.5rem;
         right: 1.5rem;
         z-index: 1000;
-        display: flex;
-        gap: 1rem;
     }
 
-    .btn-control {
+    .btn-theme {
         padding: 0.875rem 1.75rem;
         border: none;
         border-radius: 50px;
@@ -234,39 +224,6 @@
         align-items: center;
         gap: 0.625rem;
         backdrop-filter: blur(10px);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .btn-control::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.3);
-        transform: translate(-50%, -50%);
-        transition: width 0.6s, height 0.6s;
-    }
-
-    .btn-control:hover::before {
-        width: 300px;
-        height: 300px;
-    }
-
-    .btn-control span {
-        position: relative;
-        z-index: 1;
-    }
-
-    .btn-lang {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-    }
-
-    .btn-theme {
         background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         color: white;
     }
@@ -275,13 +232,9 @@
         background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
     }
 
-    .btn-control:hover {
+    .btn-theme:hover {
         transform: translateY(-3px) scale(1.05);
         box-shadow: var(--shadow-lg);
-    }
-
-    .btn-control:active {
-        transform: translateY(-1px) scale(1.02);
     }
 
     /* Container */
@@ -350,6 +303,18 @@
         font-weight: 500;
     }
 
+    .construct-label {
+        display: inline-block;
+        background: var(--gradient-2);
+        color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        box-shadow: var(--shadow-sm);
+    }
+
     /* Demographics Grid */
     .demo-grid {
         display: grid;
@@ -364,13 +329,6 @@
         gap: 0.75rem;
         animation: fadeIn 0.6s ease-out backwards;
     }
-
-    .form-group:nth-child(1) { animation-delay: 0.1s; }
-    .form-group:nth-child(2) { animation-delay: 0.2s; }
-    .form-group:nth-child(3) { animation-delay: 0.3s; }
-    .form-group:nth-child(4) { animation-delay: 0.4s; }
-    .form-group:nth-child(5) { animation-delay: 0.5s; }
-    .form-group:nth-child(6) { animation-delay: 0.6s; }
 
     .form-label {
         font-size: 0.9375rem;
@@ -407,10 +365,6 @@
         transform: translateY(-2px);
     }
 
-    .form-control:hover {
-        border-color: var(--primary-dark);
-    }
-
     /* Question Box */
     .question {
         background: var(--bg-light);
@@ -443,7 +397,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 2.5rem;
+        min-width: 2.5rem;
         height: 2.5rem;
         background: var(--gradient-1);
         color: white;
@@ -451,12 +405,13 @@
         border-radius: 50%;
         margin-right: 1rem;
         box-shadow: var(--shadow-sm);
+        padding: 0 0.5rem;
     }
 
     /* Likert Scale */
     .likert {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        grid-template-columns: repeat(5, 1fr);
         gap: 1rem;
     }
 
@@ -490,18 +445,6 @@
         overflow: hidden;
     }
 
-    .likert-label::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
-
     .likert-label span {
         position: relative;
         z-index: 1;
@@ -515,22 +458,10 @@
         box-shadow: var(--shadow-lg);
     }
 
-    .likert-option input[type="radio"]:checked + .likert-label::before {
-        opacity: 1;
-    }
-
     .likert-label:hover {
         border-color: var(--primary);
         transform: translateY(-4px) scale(1.03);
         box-shadow: var(--shadow-md);
-    }
-
-    /* Textarea */
-    textarea.form-control {
-        resize: vertical;
-        min-height: 150px;
-        line-height: 1.7;
-        font-family: inherit;
     }
 
     /* Submit Button */
@@ -548,35 +479,14 @@
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: var(--shadow-lg);
         margin-top: 2rem;
-        position: relative;
-        overflow: hidden;
         text-transform: uppercase;
         letter-spacing: 1px;
-    }
-
-    .btn-submit::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-        transition: left 0.6s;
-    }
-
-    .btn-submit:hover::before {
-        left: 100%;
     }
 
     .btn-submit:hover {
         transform: translateY(-4px) scale(1.02);
         box-shadow: var(--shadow-xl);
         background-position: 100% 50%;
-    }
-
-    .btn-submit:active {
-        transform: translateY(-2px) scale(1);
     }
 
     /* Divider */
@@ -588,52 +498,8 @@
         box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
     }
 
-    /* Utility Classes */
     .d-none {
         display: none !important;
-    }
-
-    /* Animations */
-    @keyframes fadeInDown {
-        from {
-            opacity: 0;
-            transform: translateY(-30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes slideUp {
-        from {
-            opacity: 0;
-            transform: translateY(50px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
     }
 
     /* Progress Bar */
@@ -648,77 +514,45 @@
         box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
     }
 
+    /* Animations */
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+        from { opacity: 0; transform: translateY(50px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
-        .hero {
-            padding: 3rem 1.5rem;
-        }
-
-        .controls {
-            top: auto;
-            bottom: 1rem;
-            left: 1rem;
-            right: 1rem;
-            justify-content: center;
-        }
-
-        .btn-control {
-            flex: 1;
-            justify-content: center;
-        }
-
-        .likert {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .demo-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .container {
-            margin-top: -2rem;
-        }
+        .hero { padding: 3rem 1.5rem; }
+        .controls { top: auto; bottom: 1rem; left: 1rem; right: 1rem; }
+        .likert { grid-template-columns: repeat(2, 1fr); }
+        .demo-grid { grid-template-columns: 1fr; }
+        .container { margin-top: -2rem; }
     }
 
     @media (max-width: 480px) {
-        .likert {
-            grid-template-columns: 1fr;
-        }
-
-        .likert-label {
-            min-height: auto;
-            padding: 1rem;
-        }
-
-        .hero-badges {
-            flex-direction: column;
-            align-items: center;
-        }
-    }
-
-    /* Success Message */
-    .success-message {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0);
-        background: white;
-        padding: 3rem;
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-xl);
-        text-align: center;
-        z-index: 10000;
-        transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-
-    .success-message.show {
-        transform: translate(-50%, -50%) scale(1);
+        .likert { grid-template-columns: 1fr; }
+        .likert-label { min-height: auto; padding: 1rem; }
     }
 </style>
 </head>
 <body>
 
-<!-- Animated Background Particles -->
+<!-- Particles -->
 <div class="particles">
     <div class="particle" style="top: 10%; left: 10%; width: 100px; height: 100px; background: linear-gradient(135deg, #667eea40, #764ba240);"></div>
     <div class="particle" style="top: 60%; left: 80%; width: 150px; height: 150px; background: linear-gradient(135deg, #f093fb40, #f5576c40); animation-delay: -5s;"></div>
@@ -728,75 +562,45 @@
 <!-- Progress Bar -->
 <div class="progress-bar" id="progressBar"></div>
 
-<!-- Controls -->
+<!-- Dark Mode Toggle -->
 <div class="controls">
-    <button class="btn-control btn-lang" onclick="toggleLang()" id="langBtn">
-        <span>🌐</span> <span>বাংলা</span>
-    </button>
-    <button class="btn-control btn-theme" onclick="toggleDark()" id="darkBtn">
-        <span id="themeIcon">🌙</span> <span>Dark</span>
+    <button class="btn-theme" onclick="toggleDark()" id="darkBtn">
+        <span id="themeIcon">🌙</span> <span>Dark Mode</span>
     </button>
 </div>
 
-<!-- Hero Section -->
+<!-- Hero -->
 <section class="hero">
     <div class="hero-content">
-        <div class="hero-badge en">
-            <span>🎓</span> Official Training Evaluation 2025
-        </div>
-        <div class="hero-badge bn bengali d-none">
-            <span>🎓</span> সরকারি প্রশিক্ষণ মূল্যায়ন ২০২৫
+        <div class="hero-badge">
+            <span>🎓</span> Research-Based Training Evaluation
         </div>
         
-        <h1 class="en">National Academy for Educational Management</h1>
-        <h1 class="bn bengali d-none">জাতীয় শিক্ষা ব্যবস্থাপনা একাডেমি</h1>
-        
-        <h2 class="en">Advanced Course on Education and Management (ACEM)</h2>
-        <h2 class="bn bengali d-none">উন্নত শিক্ষা ও ব্যবস্থাপনা কোর্স (এসিইএম)</h2>
+        <h1>NAEM ACEM Training Effectiveness Survey</h1>
+        <h2>Advanced Course on Education and Management – 2025</h2>
         
         <div class="hero-badges">
-            <div class="badge-item en">
+            <div class="badge-item">
                 <span class="badge-icon">🔒</span>
                 <div>
-                    <div style="font-size: 0.75rem; opacity: 0.8;">100% Secure</div>
-                    <div>Anonymous</div>
-                </div>
-            </div>
-            <div class="badge-item bn bengali d-none">
-                <span class="badge-icon">🔒</span>
-                <div>
-                    <div style="font-size: 0.75rem; opacity: 0.8;">১০০% নিরাপদ</div>
-                    <div>সম্পূর্ণ গোপনীয়</div>
+                    <div style="font-size: 0.75rem; opacity: 0.8;">100% Confidential</div>
+                    <div>Anonymous Survey</div>
                 </div>
             </div>
             
-            <div class="badge-item en">
+            <div class="badge-item">
                 <span class="badge-icon">⏱️</span>
                 <div>
                     <div style="font-size: 0.75rem; opacity: 0.8;">Quick & Easy</div>
-                    <div>7-8 Minutes</div>
-                </div>
-            </div>
-            <div class="badge-item bn bengali d-none">
-                <span class="badge-icon">⏱️</span>
-                <div>
-                    <div style="font-size: 0.75rem; opacity: 0.8;">দ্রুত ও সহজ</div>
-                    <div>৭-৮ মিনিট</div>
+                    <div>10-12 Minutes</div>
                 </div>
             </div>
             
-            <div class="badge-item en">
-                <span class="badge-icon">✨</span>
+            <div class="badge-item">
+                <span class="badge-icon">📊</span>
                 <div>
-                    <div style="font-size: 0.75rem; opacity: 0.8;">Your Voice</div>
-                    <div>Matters Most</div>
-                </div>
-            </div>
-            <div class="badge-item bn bengali d-none">
-                <span class="badge-icon">✨</span>
-                <div>
-                    <div style="font-size: 0.75rem; opacity: 0.8;">আপনার মতামত</div>
-                    <div>অত্যন্ত গুরুত্বপূর্ণ</div>
+                    <div style="font-size: 0.75rem; opacity: 0.8;">Research Framework</div>
+                    <div>PLS-SEM Model</div>
                 </div>
             </div>
         </div>
@@ -808,1130 +612,1272 @@
     <div class="card">
         <form action="https://formspree.io/f/mwpgbbyv" method="POST" id="surveyForm">
             
-            <!-- Demographics Section -->
+            <!-- Demographics -->
             <div class="section-header">
                 <div class="section-icon">👤</div>
-                <h3 class="en">About You</h3>
-                <h3 class="bn bengali d-none">আপনার সম্পর্কে</h3>
-                <p class="section-subtitle en">Help us understand your background</p>
-                <p class="section-subtitle bn bengali d-none">আপনার পরিচয় জানতে সাহায্য করুন</p>
+                <h3>Demographic Information</h3>
+                <p class="section-subtitle">Please provide some basic information about yourself</p>
             </div>
 
             <div class="demo-grid">
                 <div class="form-group">
-                    <label class="form-label en">Gender</label>
-                    <label class="form-label bn bengali d-none">লিঙ্গ</label>
+                    <label class="form-label">Gender</label>
                     <select name="gender" class="form-control" required>
-                        <option value="">Select / নির্বাচন করুন</option>
-                        <option value="male">Male / পুরুষ</option>
-                        <option value="female">Female / মহিলা</option>
-                        <option value="other">Other / অন্যান্য</option>
+                        <option value="">Select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label en">Age Group</label>
-                    <label class="form-label bn bengalid-none">বয়স</label>
-<select name="age" class="form-control" required>
-<option value="">Select / নির্বাচন করুন</option>
-<option value="below30">Below 30 / ৩০ এর নিচে</option>
-<option value="30-39">30–39</option>
-<option value="40-49">40–49</option>
-<option value="50plus">50+</option>
-</select>
-</div>
+                    <label class="form-label">Age Group</label>
+                    <select name="age" class="form-control" required>
+                        <option value="">Select</option>
+                        <option value="below30">Below 30</option>
+                        <option value="30-39">30-39</option>
+                        <option value="40-49">40-49</option>
+                        <option value="50plus">50+</option>
+                    </select>
+                </div>
 
-<div class="form-group">
-                <label class="form-label en">Years of Experience</label>
-                <label class="form-label bn bengali d-none">অভিজ্ঞতা (বছর)</label>
-                <input type="number" name="experience" class="form-control" min="0" max="50" placeholder="Enter years / বছর লিখুন" required>
+                <div class="form-group">
+                    <label class="form-label">Years of Experience</label>
+                    <input type="number" name="experience" class="form-control" min="0" max="50" placeholder="Enter years" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Current Position</label>
+                    <select name="position" class="form-control" required>
+                        <option value="">Select</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="head_teacher">Head Teacher</option>
+                        <option value="education_officer">Education Officer</option>
+                        <option value="administrator">Administrator</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Institution Type</label>
+                    <select name="institution" class="form-control" required>
+                        <option value="">Select</option>
+                        <option value="government">Government</option>
+                        <option value="non_government">Non-Government</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">District</label>
+                    <input type="text" name="district" class="form-control" placeholder="Enter district" required>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label class="form-label en">Current Position</label>
-                <label class="form-label bn bengali d-none">বর্তমান পদবি</label>
-                <select name="position" class="form-control" required>
-                    <option value="">Select / নির্বাচন করুন</option>
-                    <option value="teacher">Teacher / শিক্ষক</option>
-                    <option value="head_teacher">Head Teacher / প্রধান শিক্ষক</option>
-                    <option value="education_officer">Education Officer / শিক্ষা কর্মকর্তা</option>
-                    <option value="other">Other / অন্যান্য</option>
-                </select>
+            <div class="divider"></div>
+
+            <!-- SECTION 1: Program Content Quality (PCQ) -->
+            <div class="section-header">
+                <div class="section-icon">📚</div>
+                <h3>Program Content Quality</h3>
+                <p class="section-subtitle">Evaluate the relevance and clarity of training content</p>
+            </div>
+            <div class="construct-label">PCQ - Program Content Quality</div>
+
+            <!-- PCQ Question 1 -->
+            <div class="question">
+                <div class="question-text">
+                    <span class="question-number">PCQ1</span>
+                    Prior to this training, I knew how the program was supposed to affect my performance.
+                </div>
+                <div class="likert">
+                    <div class="likert-option">
+                        <input type="radio" name="pcq1" value="1" id="pcq1-1" required>
+                        <label for="pcq1-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                    </div>
+                    <div class="likert-option">
+                        <input type="radio" name="pcq1" value="2" id="pcq1-2">
+                        <label for="pcq1-2" class="likert-label"><span>Disagree</span></label>
+                    </div>
+                    <div class="likert-option">
+                        <input type="radio" name="pcq1" value="3" id="pcq1-3">
+                        <label for="pcq1-3" class="likert-label"><span>Neutral</span></label>
+                    </div>
+                    <div class="likert-option">
+                        <input type="radio" name="pcq1" value="4" id="pcq1-4">
+                        <label for="pcq1-4" class="likert-label"><span>Agree</span></label>
+                    </div>
+                    <div class="likert-option">
+                        <input type="radio" name="pcq1" value="5" id="pcq1-5">
+                        <label for="pcq1-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                    </div>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label class="form-label en">Institution Type</label>
-                <label class="form-label bn bengali d-none">প্রতিষ্ঠানের ধরন</label>
-                <select name="institution" class="form-control" required>
-                    <option value="">Select / নির্বাচন করুন</option>
-                    <option value="government">Government / সরকারি</option>
-                    <option value="non_government">Non-government / বেসরকারি</option>
-                </select>
+            <!-- PCQ Question 2 -->
+            <div class="question">
+                <div class="question-text">
+                    <span class="question-number">PCQ2</span>
+                    Before this training, I had a good understanding of how it would fit my job-related development.
+                </div>
+                <div class="likert">
+                    <div class="likert-option">
+                        <input type="radio" name="pcq2" value="1" id="pcq2-1" required>
+                        <label for="pcq2-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                    </div>
+                    <div class="likert-option">
+                        <input type="radio" name="pcq2" value="2" id="pcq2-2">
+                        <label for="pcq2-2" class="likert-label"><span>Disagree</span></label>
+                    </div>
+                    <div class="likert-option">
+                        <input type="radio" name="pcq2" value="3" id="pcq2-3">
+                        <label for="pcq2-3" class="likert-label"><span>Neutral</span></label>
+                    </div>
+                    <div class="likert-option">
+                        <input type="radio" name="pcq2" value="4" id="pcq2-4">
+                        <label for="pcq2-4" class="likert-label"><span>Agree</span></label>
+                    </div>
+                    <div class="likert-option">
+                        <input type="radio" name="pcq2" value="5" id="pcq2-5">
+                        <label for="pcq2-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                    </div>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label class="form-label en">District</label>
-                <label class="form-label bn bengali d-none">জেলা</label>
-                <input type="text" name="district" class="form-control" placeholder="Enter district / জেলা লিখুন" required>
+            <!-- PCQ Question 3 -->
+            <div class="question">
+                <div class="question-text">
+                    <span class="question-number">PCQ3</span>
+                    I knew what to expect from this training before it began.
+                </div>
+                <div class="likert">
+                    <div class="likert-option">
+                        <input type="radio" name="pcq3" value="1" id="pcq3-1" required>
+                        <label for="pcq3-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                    </div>
+                    <div class="likert-option">
+                        <input type="radio" name="pcq3" value="2" id="pcq3-2">
+                        <label for="pcq3-2" class="likert-label"><span>Disagree</span></label>
+                    </div>
+                    <div class="likert-option">
+                        <input type="radio" name="pcq3" value="3" id="pcq3-3">
+                        <label for="pcq3-3" class="likert-label"><span>Neutral</span></label>
+                    </div>
+<div class="likert-option">
+
+<input type="radio" name="pcq3" value="4" id="pcq3-4">
+                    <label for="pcq3-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="pcq3" value="5" id="pcq3-5">
+                    <label for="pcq3-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- PCQ Question 4 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">PCQ4</span>
+                I believe this training will help me do my current job better.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="pcq4" value="1" id="pcq4-1" required>
+                    <label for="pcq4-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="pcq4" value="2" id="pcq4-2">
+                    <label for="pcq4-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="pcq4" value="3" id="pcq4-3">
+                    <label for="pcq4-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="pcq4" value="4" id="pcq4-4">
+                    <label for="pcq4-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="pcq4" value="5" id="pcq4-5">
+                    <label for="pcq4-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- PCQ Question 5 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">PCQ5</span>
+                The instructional aids (equipment, illustrations, etc.) used in this training are very similar to real things I use on the job.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="pcq5" value="1" id="pcq5-1" required>
+                    <label for="pcq5-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="pcq5" value="2" id="pcq5-2">
+                    <label for="pcq5-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="pcq5" value="3" id="pcq5-3">
+                    <label for="pcq5-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="pcq5" value="4" id="pcq5-4">
+                    <label for="pcq5-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="pcq5" value="5" id="pcq5-5">
+                    <label for="pcq5-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- PCQ Question 6 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">PCQ6</span>
+                The methods used in this training are very similar to how we do it on the job.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="pcq6" value="1" id="pcq6-1" required>
+                    <label for="pcq6-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="pcq6" value="2" id="pcq6-2">
+                    <label for="pcq6-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="pcq6" value="3" id="pcq6-3">
+                    <label for="pcq6-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="pcq6" value="4" id="pcq6-4">
+                    <label for="pcq6-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="pcq6" value="5" id="pcq6-5">
+                    <label for="pcq6-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- PCQ Question 7 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">PCQ7</span>
+                It is clear to me that the people conducting this training understand how I will use what I learn.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="pcq7" value="1" id="pcq7-1" required>
+                    <label for="pcq7-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="pcq7" value="2" id="pcq7-2">
+                    <label for="pcq7-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="pcq7" value="3" id="pcq7-3">
+                    <label for="pcq7-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="pcq7" value="4" id="pcq7-4">
+                    <label for="pcq7-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="pcq7" value="5" id="pcq7-5">
+                    <label for="pcq7-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
             </div>
         </div>
 
         <div class="divider"></div>
 
-        <!-- Questions Section -->
+        <!-- SECTION 2: Program Instructional Method (PIM) -->
         <div class="section-header">
-            <div class="section-icon">📋</div>
-            <h3 class="en">Training Evaluation</h3>
-            <h3 class="bn bengali d-none">প্রশিক্ষণ মূল্যায়ন</h3>
-            <p class="section-subtitle en">Share your honest feedback</p>
-            <p class="section-subtitle bn bengali d-none">আপনার সৎ মতামত শেয়ার করুন</p>
+            <div class="section-icon">🎯</div>
+            <h3>Program Instructional Method</h3>
+            <p class="section-subtitle">Assess how the training was delivered</p>
         </div>
+        <div class="construct-label">PIM - Program Instructional Method</div>
 
-        <!-- All 30 Questions with same structure -->
+        <!-- PIM Question 1 -->
         <div class="question">
-            <div class="question-text en">
-                <span class="question-number">1</span>
-                The training topics were relevant to my daily work
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">১</span>
-                প্রশিক্ষণের বিষয়গুলো আমার দৈনন্দিন কাজের সাথে সম্পর্কিত ছিল
+            <div class="question-text">
+                <span class="question-number">PIM1</span>
+                The way the trainer(s) taught the material made me feel more confident I could apply it in my job.
             </div>
             <div class="likert">
                 <div class="likert-option">
-                    <input type="radio" name="q1" value="1" id="q1-1" required>
-                    <label for="q1-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                    <input type="radio" name="pim1" value="1" id="pim1-1" required>
+                    <label for="pim1-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
                 </div>
                 <div class="likert-option">
-                    <input type="radio" name="q1" value="2" id="q1-2">
-                    <label for="q1-2" class="likert-label"><span>Disagree</span></label>
+                    <input type="radio" name="pim1" value="2" id="pim1-2">
+                    <label for="pim1-2" class="likert-label"><span>Disagree</span></label>
                 </div>
                 <div class="likert-option">
-                    <input type="radio" name="q1" value="3" id="q1-3">
-                    <label for="q1-3" class="likert-label"><span>Neutral</span></label>
+                    <input type="radio" name="pim1" value="3" id="pim1-3">
+                    <label for="pim1-3" class="likert-label"><span>Neutral</span></label>
                 </div>
                 <div class="likert-option">
-                    <input type="radio" name="q1" value="4" id="q1-4">
-                    <label for="q1-4" class="likert-label"><span>Agree</span></label>
+                    <input type="radio" name="pim1" value="4" id="pim1-4">
+                    <label for="pim1-4" class="likert-label"><span>Agree</span></label>
                 </div>
                 <div class="likert-option">
-                    <input type="radio" name="q1" value="5" id="q1-5">
-                    <label for="q1-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                    <input type="radio" name="pim1" value="5" id="pim1-5">
+                    <label for="pim1-5" class="likert-label"><span>Strongly<br>Agree</span></label>
                 </div>
             </div>
         </div>
 
-
-<!-- Copy this exact pattern for questions 2-30, I'll show you a few more examples -->
-<div class="question">
-    <div class="question-text en">
-        <span class="question-number">2</span>
-        I learned many new and useful things
-    </div>
-    <div class="question-text bn bengali d-none">
-        <span class="question-number">২</span>
-        প্রশিক্ষণে আমি অনেক নতুন ও কাজের কথা শিখেছি
-    </div>
-    <div class="likert">
-        <div class="likert-option">
-            <input type="radio" name="q2" value="1" id="q2-1" required>
-            <label for="q2-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
-        </div>
-        <div class="likert-option">
-            <input type="radio" name="q2" value="2" id="q2-2">
-            <label for="q2-2" class="likert-label"><span>Disagree</span></label>
-        </div>
-        <div class="likert-option">
-            <input type="radio" name="q2" value="3" id="q2-3">
-            <label for="q2-3" class="likert-label"><span>Neutral</span></label>
-        </div>
-        <div class="likert-option">
-            <input type="radio" name="q2" value="4" id="q2-4">
-            <label for="q2-4" class="likert-label"><span>Agree</span></label>
-        </div>
-        <div class="likert-option">
-            <input type="radio" name="q2" value="5" id="q2-5">
-            <label for="q2-5" class="likert-label"><span>Strongly<br>Agree</span></label>
-        </div>
-    </div>
-</div>
-<!-- Question 3 -->
-            <div class="question">
-                <div class="question-text en">
-                    <span class="question-number">3.</span>
-                    Real examples from Bangladeshi schools were given
-                </div>
-                <div class="question-text bn bengali d-none">
-                    <span class="question-number">৩.</span>
-                    বাংলাদেশের স্কুলের বাস্তব উদাহরণ দেওয়া হয়েছিল
-                </div>
-                <div class="likert">
-                    <div class="likert-option">
-                        <input type="radio" name="q3" value="1" id="q3-1" required>
-                        <label for="q3-1" class="likert-label">Strongly Disagree</label>
-                    </div>
-                    <div class="likert-option">
-                        <input type="radio" name="q3" value="2" id="q3-2">
-                        <label for="q3-2" class="likert-label">Disagree</label>
-                    </div>
-                    <div class="likert-option">
-                        <input type="radio" name="q3" value="3" id="q3-3">
-                        <label for="q3-3" class="likert-label">Neutral</label>
-                    </div>
-                    <div class="likert-option">
-                        <input type="radio" name="q3" value="4" id="q3-4">
-                        <label for="q3-4" class="likert-label">Agree</label>
-                    </div>
-                    <div class="likert-option">
-                        <input type="radio" name="q3" value="5" id="q3-5">
-                        <label for="q3-5" class="likert-label">Strongly Agree</label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Question 4 -->
-            <div class="question">
-                <div class="question-text en">
-                    <span class="question-number">4.</span>
-                    There was a good balance between listening and doing activities
-                </div>
-                <div class="question-text bn bengali d-none">
-                    <span class="question-number">৪.</span>
-                    শোনা এবং নিজে করে দেখার মধ্যে ভালো ভারসাম্য ছিল
-                </div>
-                <div class="likert">
-                    <div class="likert-option">
-                        <input type="radio" name="q4" value="1" id="q4-1" required>
-                        <label for="q4-1" class="likert-label">Strongly Disagree</label>
-                    </div>
-                    <div class="likert-option">
-                        <input type="radio" name="q4" value="2" id="q4-2">
-                        <label for="q4-2" class="likert-label">Disagree</label>
-                    </div>
-                    <div class="likert-option">
-                        <input type="radio" name="q4" value="3" id="q4-3">
-                        <label for="q4-3" class="likert-label">Neutral</label>
-                    </div>
-                    <div class="likert-option">
-                        <input type="radio" name="q4" value="4" id="q4-4">
-                        <label for="q4-4" class="likert-label">Agree</label>
-                    </div>
-                    <div class="likert-option">
-                        <input type="radio" name="q4" value="5" id="q4-5">
-                        <label for="q4-5" class="likert-label">Strongly Agree</label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Question 5 -->
-            <div class="question">
-                <div class="question-text en">
-                    <span class="question-number">5.</span>
-                    Handouts/slides were clear and easy to understand
-                </div>
-                <div class="question-text bn bengali d-none">
-                    <span class="question-number">৫.</span>
-                    হ্যান্ডআউট/স্লাইডগুলো পরিষ্কার ও সহজবোধ্য ছিল
-                </div>
-                <div class="likert">
-                    <div class="likert-option">
-                        <input type="radio" name="q5" value="1" id="q5-1" required>
-                        <label for="q5-1" class="likert-label">Strongly Disagree</label>
-                    </div>
-                    <div class="likert-option">
-                        <input type="radio" name="q5" value="2" id="q5-2">
-                        <label for="q5-2" class="likert-label">Disagree</label>
-                    </div>
-                    <div class="likert-option">
-                        <input type="radio" name="q5" value="3" id="q5-3">
-                        <label for="q5-3" class="likert-label">Neutral</label>
-                    </div>
-                    <div class="likert-option">
-                        <input type="radio" name="q5" value="4" id="q5-4">
-                        <label for="q5-4" class="likert-label">Agree</label>
-                    </div>
-                    <div class="likert-option">
-                        <input type="radio" name="q5" value="5" id="q5-5">
-                        <label for="q5-5" class="likert-label">Strongly Agree</label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Question 6 -->
-            <div class="question">
-                <div class="question-text en">
-                    <span class="question-number">6.</span>
-                    Trainers explained in simple language
-                </div>
-                <div class="question-text bn bengali d-none">
-                    <span class="question-number">৬.</span>
-                    প্রশিক্ষকরা সহজ ভাষায় বোঝাতেন
-                </div>
-                <div class="likert">
-                    <div class="likert-option">
-                        <input type="radio" name="q6" value="1" id="q6-1" required>
-                        <label for="q6-1" class="likert-label">Strongly Disagree</label>
-                    </div>
-                    <div class="likert-option">
-                        <input type="radio" name="q6" value="2" id="q6-2">
-                        <label for="q6-2" class="likert-label">Disagree</label>
-                    </div>
-                    <div class="likert-option">
-                        <input type="radio" name="q6" value="3" id="q6-3">
-                        <label for="q6-3" class="likert-label">Neutral</label>
-                    </div>
-                    <div class="likert-option">
-                        <input type="radio" name="q6" value="4" id="q6-4">
-                        <label for="q6-4" class="likert-label">Agree</label>
-                    </div>
-                    <div class="likert-option">
-                        <input type="radio" name="q6" value="5" id="q6-5">
-                        <label for="q6-5" class="likert-label">Strongly Agree</label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Question 7 -->
-            <div class="question">
-                <div class="question-text en">
-                    <span class="question-number">7.</span>
-                    Trainers gave opportunities to ask questions
-                </div>
-                <div class="question-text bn bengali d-none">
-                    <span class="question-number">৭.</span>
-                    প্রশিক্ষকরা আমাদের প্রশ্ন করার সুযোগ দিয়েছেন
-                </div>
-                <div class="likert">
-                    <div class="likert-option">
-                        <input type="radio" name="q7" value="1" id="q7-1" required>
-                        <label for="q7-1" class="likert-label">Strongly Disagree</label>
-                    </div>
-                    <div class="likert-option">
-                        <input type="radio" name="q7" value="2" id="q7-2">
-<label for="q7-2" class="likert-label">Disagree</label>
-</div>
-<div class="likert-option">
-<input type="radio" name="q7" value="3" id="q7-3">
-<label for="q7-3" class="likert-label">Neutral</label>
-</div>
-<div class="likert-option">
-<input type="radio" name="q7" value="4" id="q7-4">
-<label for="q7-4" class="likert-label">Agree</label>
-</div>
-<div class="likert-option">
-<input type="radio" name="q7" value="5" id="q7-5">
-<label for="q7-5" class="likert-label">Strongly Agree</label>
-</div>
-</div>
-</div>
-
-<!-- Question 8 -->
+        <!-- PIM Question 2 -->
         <div class="question">
-            <div class="question-text en">
-                <span class="question-number">8.</span>
-                Questions were answered clearly
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">৮.</span>
-                প্রশ্নের উত্তর পরিষ্কারভাবে দিয়েছেন
+            <div class="question-text">
+                <span class="question-number">PIM2</span>
+                The trainer(s) used a lot of examples that showed me how I could use my learning on the job.
             </div>
             <div class="likert">
                 <div class="likert-option">
-                    <input type="radio" name="q8" value="1" id="q8-1" required>
-                    <label for="q8-1" class="likert-label">Strongly Disagree</label>
+                    <input type="radio" name="pim2" value="1" id="pim2-1" required>
+                    <label for="pim2-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
                 </div>
                 <div class="likert-option">
-                    <input type="radio" name="q8" value="2" id="q8-2">
-                    <label for="q8-2" class="likert-label">Disagree</label>
+                    <input type="radio" name="pim2" value="2" id="pim2-2">
+                    <label for="pim2-2" class="likert-label"><span>Disagree</span></label>
                 </div>
                 <div class="likert-option">
-                    <input type="radio" name="q8" value="3" id="q8-3">
-                    <label for="q8-3" class="likert-label">Neutral</label>
+                    <input type="radio" name="pim2" value="3" id="pim2-3">
+                    <label for="pim2-3" class="likert-label"><span>Neutral</span></label>
                 </div>
                 <div class="likert-option">
-                    <input type="radio" name="q8" value="4" id="q8-4">
-                    <label for="q8-4" class="likert-label">Agree</label>
+                    <input type="radio" name="pim2" value="4" id="pim2-4">
+                    <label for="pim2-4" class="likert-label"><span>Agree</span></label>
                 </div>
                 <div class="likert-option">
-                    <input type="radio" name="q8" value="5" id="q8-5">
-                    <label for="q8-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 9 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">9.</span>
-                Trainers were respectful and encouraging
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">৯.</span>
-                প্রশিক্ষকরা শ্রদ্ধাশীল ও উৎসাহদায়ক ছিলেন
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q9" value="1" id="q9-1" required>
-                    <label for="q9-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q9" value="2" id="q9-2">
-                    <label for="q9-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q9" value="3" id="q9-3">
-                    <label for="q9-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q9" value="4" id="q9-4">
-                    <label for="q9-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q9" value="5" id="q9-5">
-                    <label for="q9-5" class="likert-label">Strongly Agree</label>
+                    <input type="radio" name="pim2" value="5" id="pim2-5">
+                    <label for="pim2-5" class="likert-label"><span>Strongly<br>Agree</span></label>
                 </div>
             </div>
         </div>
 
-        <!-- Question 10 -->
+        <!-- PIM Question 3 -->
         <div class="question">
-            <div class="question-text en">
-                <span class="question-number">10.</span>
-                Trainers kept the class interesting
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">১০.</span>
-                প্রশিক্ষকরা ক্লাসকে আকর্ষণীয় রেখেছেন
+            <div class="question-text">
+                <span class="question-number">PIM3</span>
+                I like the way this training seems so much like my job.
             </div>
             <div class="likert">
                 <div class="likert-option">
-                    <input type="radio" name="q10" value="1" id="q10-1" required>
-                    <label for="q10-1" class="likert-label">Strongly Disagree</label>
+                    <input type="radio" name="pim3" value="1" id="pim3-1" required>
+                    <label for="pim3-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
                 </div>
                 <div class="likert-option">
-                    <input type="radio" name="q10" value="2" id="q10-2">
-                    <label for="q10-2" class="likert-label">Disagree</label>
+                    <input type="radio" name="pim3" value="2" id="pim3-2">
+                    <label for="pim3-2" class="likert-label"><span>Disagree</span></label>
                 </div>
                 <div class="likert-option">
-                    <input type="radio" name="q10" value="3" id="q10-3">
-                    <label for="q10-3" class="likert-label">Neutral</label>
+                    <input type="radio" name="pim3" value="3" id="pim3-3">
+                    <label for="pim3-3" class="likert-label"><span>Neutral</span></label>
                 </div>
                 <div class="likert-option">
-                    <input type="radio" name="q10" value="4" id="q10-4">
-                    <label for="q10-4" class="likert-label">Agree</label>
+                    <input type="radio" name="pim3" value="4" id="pim3-4">
+                    <label for="pim3-4" class="likert-label"><span>Agree</span></label>
                 </div>
                 <div class="likert-option">
-                    <input type="radio" name="q10" value="5" id="q10-5">
-                    <label for="q10-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 11 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">11.</span>
-                There were group work or practical activities
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">১১.</span>
-                গ্রুপ ওয়ার্ক বা ব্যবহারিক কার্যক্রম হয়েছে
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q11" value="1" id="q11-1" required>
-                    <label for="q11-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q11" value="2" id="q11-2">
-                    <label for="q11-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q11" value="3" id="q11-3">
-                    <label for="q11-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q11" value="4" id="q11-4">
-                    <label for="q11-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q11" value="5" id="q11-5">
-                    <label for="q11-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 12 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">12.</span>
-                These activities helped me understand the topics
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">১২.</span>
-                এই কার্যক্রমগুলো বিষয় বোঝাতে সাহায্য করেছে
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q12" value="1" id="q12-1" required>
-                    <label for="q12-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q12" value="2" id="q12-2">
-                    <label for="q12-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q12" value="3" id="q12-3">
-                    <label for="q12-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q12" value="4" id="q12-4">
-                    <label for="q12-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q12" value="5" id="q12-5">
-                    <label for="q12-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 13 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">13.</span>
-                Projector/computer was used when needed
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">১৩.</span>
-                প্রয়োজনে প্রজেক্টর/কম্পিউটার ব্যবহার করা হয়েছে
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q13" value="1" id="q13-1" required>
-                    <label for="q13-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q13" value="2" id="q13-2">
-                    <label for="q13-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q13" value="3" id="q13-3">
-                    <label for="q13-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q13" value="4" id="q13-4">
-                    <label for="q13-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q13" value="5" id="q13-5">
-                    <label for="q13-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 14 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">14.</span>
-                Classroom was comfortable (chair, light, temperature)
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">১৪.</span>
-                ক্লাসরুম আরামদায়ক ছিল (চেয়ার, আলো, তাপমাত্রা)
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q14" value="1" id="q14-1" required>
-                    <label for="q14-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q14" value="2" id="q14-2">
-                    <label for="q14-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q14" value="3" id="q14-3">
-                    <label for="q14-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q14" value="4" id="q14-4">
-                    <label for="q14-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q14" value="5" id="q14-5">
-                    <label for="q14-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 15 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">15.</span>
-                I could clearly see and hear the trainer
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">১৫.</span>
-                প্রশিক্ষককে পরিষ্কার শুনতে ও দেখতে পেয়েছি
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q15" value="1" id="q15-1" required>
-                    <label for="q15-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q15" value="2" id="q15-2">
-                    <label for="q15-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q15" value="3" id="q15-3">
-                    <label for="q15-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q15" value="4" id="q15-4">
-                    <label for="q15-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q15" value="5" id="q15-5">
-                    <label for="q15-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 16 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">16.</span>
-                There was enough time for each topic
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">১৬.</span>
-                প্রতিটি বিষয়ের জন্য যথেষ্ট সময় ছিল
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q16" value="1" id="q16-1" required>
-                    <label for="q16-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q16" value="2" id="q16-2">
-                    <label for="q16-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q16" value="3" id="q16-3">
-                    <label for="q16-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q16" value="4" id="q16-4">
-                    <label for="q16-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q16" value="5" id="q16-5">
-                    <label for="q16-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 17 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">17.</span>
-                Hostel/food arrangements were satisfactory (if stayed)
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">১৭.</span>
-                হোস্টেল/খাবারের ব্যবস্থা (যদি থেকে থাকি) সন্তোষজনক ছিল
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q17" value="1" id="q17-1" required>
-                    <label for="q17-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q17" value="2" id="q17-2">
-                    <label for="q17-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q17" value="3" id="q17-3">
-                    <label for="q17-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q17" value="4" id="q17-4">
-                    <label for="q17-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q17" value="5" id="q17-5">
-                    <label for="q17-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 18 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">18.</span>
-                Other participants were friendly and cooperative
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">১৮.</span>
-                অন্যান্য অংশগ্রহণকারীরা সদয় ও সহযোগী ছিলেন
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q18" value="1" id="q18-1" required>
-                    <label for="q18-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q18" value="2" id="q18-2">
-                    <label for="q18-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q18" value="3" id="q18-3">
-                    <label for="q18-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q18" value="4" id="q18-4">
-                    <label for="q18-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q18" value="5" id="q18-5">
-                    <label for="q18-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 19 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">19.</span>
-                NAEM staff helped quickly when needed
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">১৯.</span>
-                নায়েমের কর্মকর্তা-কর্মচারীরা দ্রুত সাহায্য করেছেন
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q19" value="1" id="q19-1" required>
-                    <label for="q19-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q19" value="2" id="q19-2">
-                    <label for="q19-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q19" value="3" id="q19-3">
-                    <label for="q19-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q19" value="4" id="q19-4">
-                    <label for="q19-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q19" value="5" id="q19-5">
-                    <label for="q19-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 20 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">20.</span>
-                I learned at least one new method I can use in school
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">২০.</span>
-                আমি অন্তত একটি নতুন পদ্ধতি শিখেছি যা স্কুলে ব্যবহার করতে পারব
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q20" value="1" id="q20-1" required>
-                    <label for="q20-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q20" value="2" id="q20-2">
-                    <label for="q20-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q20" value="3" id="q20-3">
-                    <label for="q20-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q20" value="4" id="q20-4">
-                    <label for="q20-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q20" value="5" id="q20-5">
-                    <label for="q20-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 21 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">21.</span>
-                My confidence to try new things has increased
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">২১.</span>
-                এই প্রশিক্ষণের পর নতুন কিছু চেষ্টা করার আত্মবিশ্বাস বেড়েছে
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q21" value="1" id="q21-1" required>
-                    <label for="q21-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q21" value="2" id="q21-2">
-                    <label for="q21-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q21" value="3" id="q21-3">
-                    <label for="q21-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q21" value="4" id="q21-4">
-                    <label for="q21-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q21" value="5" id="q21-5">
-                    <label for="q21-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 22 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">22.</span>
-                I now see clear solutions to some workplace problems
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">২২.</span>
-                কর্মক্ষেত্রের কিছু সমস্যা সমাধানের পথ এখন পরিষ্কার দেখতে পাচ্ছি
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q22" value="1" id="q22-1" required>
-                    <label for="q22-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q22" value="2" id="q22-2">
-                    <label for="q22-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q22" value="3" id="q22-3">
-                    <label for="q22-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q22" value="4" id="q22-4">
-                    <label for="q22-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q22" value="5" id="q22-5">
-                    <label for="q22-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 23 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">23.</span>
-                I have better understanding of using ICT in education
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">২৩.</span>
-                শিক্ষায় কম্পিউটার/আইসিটি ব্যবহার সম্পর্কে এখন আরও ভালো ধারণা আছে
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q23" value="1" id="q23-1" required>
-                    <label for="q23-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q23" value="2" id="q23-2">
-                    <label for="q23-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q23" value="3" id="q23-3">
-                    <label for="q23-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-
-<input type="radio" name="q23" value="4" id="q23-4">
-                    <label for="q23-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q23" value="5" id="q23-5">
-                    <label for="q23-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 24 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">24.</span>
-                My leadership and management skills have improved
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">২৪.</span>
-                আমার নেতৃত্ব ও ব্যবস্থাপনার দক্ষতা বেড়েছে
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q24" value="1" id="q24-1" required>
-                    <label for="q24-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q24" value="2" id="q24-2">
-                    <label for="q24-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q24" value="3" id="q24-3">
-                    <label for="q24-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q24" value="4" id="q24-4">
-                    <label for="q24-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q24" value="5" id="q24-5">
-                    <label for="q24-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 25 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">25.</span>
-                Overall, this ACEM training was beneficial for my job
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">২৫.</span>
-                সামগ্রিকভাবে এই ACEM প্রশিক্ষণটি আমার চাকরির জন্য উপকারী হয়েছে
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q25" value="1" id="q25-1" required>
-                    <label for="q25-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q25" value="2" id="q25-2">
-                    <label for="q25-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q25" value="3" id="q25-3">
-                    <label for="q25-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q25" value="4" id="q25-4">
-                    <label for="q25-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q25" value="5" id="q25-5">
-                    <label for="q25-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 26 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">26.</span>
-                After returning to school, I have tried at least one thing from the training
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">২৬.</span>
-                স্কুলে ফিরে এসে আমি প্রশিক্ষণের অন্তত একটি জিনিস চেষ্টা করেছি
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q26" value="1" id="q26-1" required>
-                    <label for="q26-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q26" value="2" id="q26-2">
-                    <label for="q26-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q26" value="3" id="q26-3">
-                    <label for="q26-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q26" value="4" id="q26-4">
-                    <label for="q26-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q26" value="5" id="q26-5">
-                    <label for="q26-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 27 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">27.</span>
-                My school allows trying new methods if possible
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">২৭.</span>
-                আমার স্কুলে সম্ভব হলে নতুন পদ্ধতি ব্যবহার করার অনুমতি আছে
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q27" value="1" id="q27-1" required>
-                    <label for="q27-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q27" value="2" id="q27-2">
-                    <label for="q27-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q27" value="3" id="q27-3">
-                    <label for="q27-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q27" value="4" id="q27-4">
-                    <label for="q27-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q27" value="5" id="q27-5">
-                    <label for="q27-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 28 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">28.</span>
-                My school has basic resources to try new things
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">২৮.</span>
-                আমার স্কুলে নতুন কিছু চেষ্টা করার মতো মৌলিক উপকরণ আছে
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q28" value="1" id="q28-1" required>
-                    <label for="q28-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q28" value="2" id="q28-2">
-                    <label for="q28-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q28" value="3" id="q28-3">
-                    <label for="q28-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q28" value="4" id="q28-4">
-                    <label for="q28-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q28" value="5" id="q28-5">
-                    <label for="q28-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 29 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">29.</span>
-                We can discuss training topics with other teachers
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">২৯.</span>
-                প্রশিক্ষণের কথা অন্য শিক্ষকদের সাথে আলোচনা করা যায়
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q29" value="1" id="q29-1" required>
-                    <label for="q29-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q29" value="2" id="q29-2">
-                    <label for="q29-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q29" value="3" id="q29-3">
-                    <label for="q29-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q29" value="4" id="q29-4">
-                    <label for="q29-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q29" value="5" id="q29-5">
-                    <label for="q29-5" class="likert-label">Strongly Agree</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question 30 -->
-        <div class="question">
-            <div class="question-text en">
-                <span class="question-number">30.</span>
-                I would recommend this ACEM training to my colleagues
-            </div>
-            <div class="question-text bn bengali d-none">
-                <span class="question-number">৩০.</span>
-                আমি আমার সহকর্মীদের এই ACEM প্রশিক্ষণে আসার পরামর্শ দেব
-            </div>
-            <div class="likert">
-                <div class="likert-option">
-                    <input type="radio" name="q30" value="1" id="q30-1" required>
-                    <label for="q30-1" class="likert-label">Strongly Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q30" value="2" id="q30-2">
-                    <label for="q30-2" class="likert-label">Disagree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q30" value="3" id="q30-3">
-                    <label for="q30-3" class="likert-label">Neutral</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q30" value="4" id="q30-4">
-                    <label for="q30-4" class="likert-label">Agree</label>
-                </div>
-                <div class="likert-option">
-                    <input type="radio" name="q30" value="5" id="q30-5">
-                    <label for="q30-5" class="likert-label">Strongly Agree</label>
+                    <input type="radio" name="pim3" value="5" id="pim3-5">
+                    <label for="pim3-5" class="likert-label"><span>Strongly<br>Agree</span></label>
                 </div>
             </div>
         </div>
 
         <div class="divider"></div>
 
+        <!-- SECTION 3: Trainer Competence (TC) -->
+        <div class="section-header">
+            <div class="section-icon">👨‍🏫</div>
+            <h3>Trainer Competence</h3>
+            <p class="section-subtitle">Evaluate the trainer's knowledge and skills</p>
+        </div>
+        <div class="construct-label">TC - Trainer Competence</div>
 
+        <!-- TC Question 1 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">TC1</span>
+                It is clear to me that the people conducting this training understand how I will use what I learn.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="tc1" value="1" id="tc1-1" required>
+                    <label for="tc1-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tc1" value="2" id="tc1-2">
+                    <label for="tc1-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tc1" value="3" id="tc1-3">
+                    <label for="tc1-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tc1" value="4" id="tc1-4">
+                    <label for="tc1-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tc1" value="5" id="tc1-5">
+                    <label for="tc1-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
 
+        <!-- TC Question 2 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">TC2</span>
+                The trainer(s) used a lot of examples that showed me how I could use my learning on the job.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="tc2" value="1" id="tc2-1" required>
+                    <label for="tc2-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tc2" value="2" id="tc2-2">
+                    <label for="tc2-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tc2" value="3" id="tc2-3">
+                    <label for="tc2-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tc2" value="4" id="tc2-4">
+                    <label for="tc2-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tc2" value="5" id="tc2-5">
+                    <label for="tc2-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
 
-        <!-- Additional Comments -->
+        <!-- TC Question 3 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">TC3</span>
+                The way the trainer(s) taught the material made me feel more confident I could apply it in my job.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="tc3" value="1" id="tc3-1" required>
+                    <label for="tc3-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tc3" value="2" id="tc3-2">
+                    <label for="tc3-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tc3" value="3" id="tc3-3">
+                    <label for="tc3-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tc3" value="4" id="tc3-4">
+                    <label for="tc3-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tc3" value="5" id="tc3-5">
+                    <label for="tc3-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- SECTION 4: Training Environment (TE) -->
+        <div class="section-header">
+            <div class="section-icon">🏢</div>
+            <h3>Training Environment</h3>
+            <p class="section-subtitle">Assess support and resources availability</p>
+        </div>
+        <div class="construct-label">TE - Training Environment</div>
+
+        <!-- TE Question 1 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">TE1</span>
+                I never doubt my ability to use newly learned skills on the job.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="te1" value="1" id="te1-1" required>
+                    <label for="te1-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="te1" value="2" id="te1-2">
+                    <label for="te1-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="te1" value="3" id="te1-3">
+                    <label for="te1-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="te1" value="4" id="te1-4">
+                    <label for="te1-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="te1" value="5" id="te1-5">
+                    <label for="te1-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- TE Question 2 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">TE2</span>
+                I am sure I can overcome obstacles on the job that hinder my use of new skills or knowledge.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="te2" value="1" id="te2-1" required>
+                    <label for="te2-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="te2" value="2" id="te2-2">
+                    <label for="te2-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="te2" value="3" id="te2-3">
+                    <label for="te2-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="te2" value="4" id="te2-4">
+                    <label for="te2-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="te2" value="5" id="te2-5">
+                    <label for="te2-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- TE Question 3 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">TE3</span>
+                At work, I feel very confident using what I learned in training even in the face of difficult or taxing situations.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="te3" value="1" id="te3-1" required>
+                    <label for="te3-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="te3" value="2" id="te3-2">
+                    <label for="te3-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="te3" value="3" id="te3-3">
+                    <label for="te3-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="te3" value="4" id="te3-4">
+                    <label for="te3-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="te3" value="5" id="te3-5">
+                    <label for="te3-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- TE Question 4 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">TE4</span>
+                I will be able to try out this training on my job.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="te4" value="1" id="te4-1" required>
+                    <label for="te4-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="te4" value="2" id="te4-2">
+                    <label for="te4-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="te4" value="3" id="te4-3">
+                    <label for="te4-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="te4" value="4" id="te4-4">
+                    <label for="te4-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="te4" value="5" id="te4-5">
+                    <label for="te4-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- TE Question 5 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">TE5</span>
+                The resources needed to use what I learned in this training will be available to me.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="te5" value="1" id="te5-1" required>
+                    <label for="te5-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="te5" value="2" id="te5-2">
+                    <label for="te5-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="te5" value="3" id="te5-3">
+                    <label for="te5-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="te5" value="4" id="te5-4">
+                    <label for="te5-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="te5" value="5" id="te5-5">
+                    <label for="te5-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- SECTION 5: Training Facilities (TF) -->
+        <div class="section-header">
+            <div class="section-icon">🔧</div>
+            <h3>Training Facilities</h3>
+            <p class="section-subtitle">Evaluate tools, time, and opportunities</p>
+        </div>
+        <div class="construct-label">TF - Training Facilities</div>
+
+        <!-- TF Question 1 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">TF1</span>
+                I will get opportunities to use this training on my job.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="tf1" value="1" id="tf1-1" required>
+                    <label for="tf1-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tf1" value="2" id="tf1-2">
+                    <label for="tf1-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tf1" value="3" id="tf1-3">
+                    <label for="tf1-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tf1" value="4" id="tf1-4">
+                    <label for="tf1-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tf1" value="5" id="tf1-5">
+                    <label for="tf1-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- TF Question 2 (REVERSE CODED) -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">TF2</span>
+                I do not have time to try to use this training on my job.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="tf2" value="1" id="tf2-1" required>
+<label for="tf2-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+</div>
+<div class="likert-option">
+<input type="radio" name="tf2" value="2" id="tf2-2">
+<label for="tf2-2" class="likert-label"><span>Disagree</span></label>
+</div>
+<div class="likert-option">
+<input type="radio" name="tf2" value="3" id="tf2-3">
+<label for="tf2-3" class="likert-label"><span>Neutral</span></label>
+</div>
+<div class="likert-option">
+<input type="radio" name="tf2" value="4" id="tf2-4">
+<label for="tf2-4" class="likert-label"><span>Agree</span></label>
+</div>
+<div class="likert-option">
+<input type="radio" name="tf2" value="5" id="tf2-5">
+<label for="tf2-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+</div>
+</div>
+</div>
+<!-- TF Question 3 (REVERSE CODED) -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">TF3</span>
+                Trying to use this training will take too much energy away from my other work.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="tf3" value="1" id="tf3-1" required>
+                    <label for="tf3-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tf3" value="2" id="tf3-2">
+                    <label for="tf3-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tf3" value="3" id="tf3-3">
+                    <label for="tf3-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tf3" value="4" id="tf3-4">
+                    <label for="tf3-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tf3" value="5" id="tf3-5">
+                    <label for="tf3-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- TF Question 4 (REVERSE CODED) -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">TF4</span>
+                There is too much happening at work right now for me to try to use this training.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="tf4" value="1" id="tf4-1" required>
+                    <label for="tf4-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tf4" value="2" id="tf4-2">
+                    <label for="tf4-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tf4" value="3" id="tf4-3">
+                    <label for="tf4-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tf4" value="4" id="tf4-4">
+                    <label for="tf4-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="tf4" value="5" id="tf4-5">
+                    <label for="tf4-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- SECTION 6: Peer Support (PS) -->
+        <div class="section-header">
+            <div class="section-icon">🤝</div>
+            <h3>Peer Support</h3>
+            <p class="section-subtitle">Evaluate colleague encouragement and acceptance</p>
+        </div>
+        <div class="construct-label">PS - Peer Support</div>
+
+        <!-- PS Question 1 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">PS1</span>
+                My colleagues will appreciate my using the new skills I learned in this training.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="ps1" value="1" id="ps1-1" required>
+                    <label for="ps1-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps1" value="2" id="ps1-2">
+                    <label for="ps1-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps1" value="3" id="ps1-3">
+                    <label for="ps1-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps1" value="4" id="ps1-4">
+                    <label for="ps1-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps1" value="5" id="ps1-5">
+                    <label for="ps1-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- PS Question 2 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">PS2</span>
+                My colleagues will encourage me to use the skills I have learned in this training.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="ps2" value="1" id="ps2-1" required>
+                    <label for="ps2-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps2" value="2" id="ps2-2">
+                    <label for="ps2-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps2" value="3" id="ps2-3">
+                    <label for="ps2-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps2" value="4" id="ps2-4">
+                    <label for="ps2-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps2" value="5" id="ps2-5">
+                    <label for="ps2-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- PS Question 3 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">PS3</span>
+                At work, my colleagues will expect me to use what I learned in this training.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="ps3" value="1" id="ps3-1" required>
+                    <label for="ps3-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps3" value="2" id="ps3-2">
+                    <label for="ps3-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps3" value="3" id="ps3-3">
+                    <label for="ps3-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps3" value="4" id="ps3-4">
+                    <label for="ps3-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps3" value="5" id="ps3-5">
+                    <label for="ps3-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- PS Question 4 (REVERSE CODED) -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">PS4</span>
+                Experienced employees in my group ridicule others when they use techniques they learn in training.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="ps4" value="1" id="ps4-1" required>
+                    <label for="ps4-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps4" value="2" id="ps4-2">
+                    <label for="ps4-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps4" value="3" id="ps4-3">
+                    <label for="ps4-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps4" value="4" id="ps4-4">
+                    <label for="ps4-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps4" value="5" id="ps4-5">
+                    <label for="ps4-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- PS Question 5 (REVERSE CODED) -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">PS5</span>
+                People in my group are not willing to put in the effort to change the way things are done.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="ps5" value="1" id="ps5-1" required>
+                    <label for="ps5-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps5" value="2" id="ps5-2">
+                    <label for="ps5-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps5" value="3" id="ps5-3">
+                    <label for="ps5-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps5" value="4" id="ps5-4">
+                    <label for="ps5-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps5" value="5" id="ps5-5">
+                    <label for="ps5-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- PS Question 6 (REVERSE CODED) -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">PS6</span>
+                My workgroup is reluctant to try new ways of doing things.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="ps6" value="1" id="ps6-1" required>
+                    <label for="ps6-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps6" value="2" id="ps6-2">
+                    <label for="ps6-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps6" value="3" id="ps6-3">
+                    <label for="ps6-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps6" value="4" id="ps6-4">
+                    <label for="ps6-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ps6" value="5" id="ps6-5">
+                    <label for="ps6-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- SECTION 7: Supervisor Support (SS) -->
+        <div class="section-header">
+            <div class="section-icon">👔</div>
+            <h3>Supervisor Support</h3>
+            <p class="section-subtitle">Evaluate supervisor guidance and feedback</p>
+        </div>
+        <div class="construct-label">SS - Supervisor Support</div>
+
+        <!-- SS Question 1 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">SS1</span>
+                My supervisor will meet with me regularly to work on problems I may be having in trying to use this training.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="ss1" value="1" id="ss1-1" required>
+                    <label for="ss1-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ss1" value="2" id="ss1-2">
+                    <label for="ss1-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ss1" value="3" id="ss1-3">
+                    <label for="ss1-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ss1" value="4" id="ss1-4">
+                    <label for="ss1-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ss1" value="5" id="ss1-5">
+                    <label for="ss1-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- SS Question 2 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">SS2</span>
+                My supervisor will meet with me to discuss ways to apply this training on the job.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="ss2" value="1" id="ss2-1" required>
+                    <label for="ss2-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ss2" value="2" id="ss2-2">
+                    <label for="ss2-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ss2" value="3" id="ss2-3">
+                    <label for="ss2-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ss2" value="4" id="ss2-4">
+                    <label for="ss2-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ss2" value="5" id="ss2-5">
+                    <label for="ss2-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- SS Question 3 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">SS3</span>
+                My supervisor will help me set realistic goals for job performance based on my training.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="ss3" value="1" id="ss3-1" required>
+                    <label for="ss3-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ss3" value="2" id="ss3-2">
+                    <label for="ss3-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ss3" value="3" id="ss3-3">
+                    <label for="ss3-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ss3" value="4" id="ss3-4">
+                    <label for="ss3-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="ss3" value="5" id="ss3-5">
+                    <label for="ss3-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- SECTION 8: Institutional Support (IS) -->
+        <div class="section-header">
+            <div class="section-icon">🏛️</div>
+            <h3>Institutional Support</h3>
+            <p class="section-subtitle">Evaluate organizational rewards and consequences</p>
+        </div>
+        <div class="construct-label">IS - Institutional Support</div>
+
+        <!-- IS Question 1 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">IS1</span>
+                Successfully using this training will help me get a salary increase.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="is1" value="1" id="is1-1" required>
+                    <label for="is1-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is1" value="2" id="is1-2">
+                    <label for="is1-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is1" value="3" id="is1-3">
+                    <label for="is1-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is1" value="4" id="is1-4">
+                    <label for="is1-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is1" value="5" id="is1-5">
+                    <label for="is1-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- IS Question 2 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">IS2</span>
+                If I use this training I am more likely to be rewarded.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="is2" value="1" id="is2-1" required>
+                    <label for="is2-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is2" value="2" id="is2-2">
+                    <label for="is2-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is2" value="3" id="is2-3">
+                    <label for="is2-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is2" value="4" id="is2-4">
+                    <label for="is2-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is2" value="5" id="is2-5">
+                    <label for="is2-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- IS Question 3 -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">IS3</span>
+                I am likely to receive some recognition if I use my newly learned skills on the job.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="is3" value="1" id="is3-1" required>
+                    <label for="is3-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is3" value="2" id="is3-2">
+                    <label for="is3-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is3" value="3" id="is3-3">
+                    <label for="is3-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is3" value="4" id="is3-4">
+                    <label for="is3-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is3" value="5" id="is3-5">
+                    <label for="is3-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- IS Question 4 (REVERSE CODED) -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">IS4</span>
+                Employees in this organization will be penalized for not using what they have learned in this training.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="is4" value="1" id="is4-1" required>
+                    <label for="is4-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is4" value="2" id="is4-2">
+                    <label for="is4-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is4" value="3" id="is4-3">
+                    <label for="is4-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is4" value="4" id="is4-4">
+                    <label for="is4-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is4" value="5" id="is4-5">
+                    <label for="is4-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- IS Question 5 (REVERSE CODED) -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">IS5</span>
+                If I do not use new techniques taught in this training I will be reprimanded.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="is5" value="1" id="is5-1" required>
+                    <label for="is5-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is5" value="2" id="is5-2">
+                    <label for="is5-2" class="likert-label"><span>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is5" value="3" id="is5-3">
+                    <label for="is5-3" class="likert-label"><span>Neutral</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is5" value="4" id="is5-4">
+                    <label for="is5-4" class="likert-label"><span>Agree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is5" value="5" id="is5-5">
+                    <label for="is5-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- IS Question 6 (REVERSE CODED) -->
+        <div class="question">
+            <div class="question-text">
+                <span class="question-number">IS6</span>
+                If I do not use this training I will be cautioned about it.
+            </div>
+            <div class="likert">
+                <div class="likert-option">
+                    <input type="radio" name="is6" value="1" id="is6-1" required>
+                    <label for="is6-1" class="likert-label"><span>Strongly<br>Disagree</span></label>
+                </div>
+                <div class="likert-option">
+                    <input type="radio" name="is6" value="2" id="is6-2">
+<label for="is6-2" class="likert-label"><span>Disagree</span></label>
+</div>
+<div class="likert-option">
+<input type="radio" name="is6" value="3" id="is6-3">
+<label for="is6-3" class="likert-label"><span>Neutral</span></label>
+</div>
+<div class="likert-option">
+<input type="radio" name="is6" value="4" id="is6-4">
+<label for="is6-4" class="likert-label"><span>Agree</span></label>
+</div>
+<div class="likert-option">
+<input type="radio" name="is6" value="5" id="is6-5">
+<label for="is6-5" class="likert-label"><span>Strongly<br>Agree</span></label>
+</div>
+</div>
+</div>
+<div class="divider"></div>
+ <!-- Additional Comments -->
         <div class="section-header">
             <div class="section-icon">💬</div>
-            <h3 class="en">Additional Feedback</h3>
-            <h3 class="bn bengali d-none">অতিরিক্ত মতামত</h3>
-            <p class="section-subtitle en">Your suggestions help us improve</p>
-            <p class="section-subtitle bn bengali d-none">আপনার পরামর্শ আমাদের উন্নতিতে সাহায্য করে</p>
+            <h3>Additional Feedback</h3>
+            <p class="section-subtitle">Your suggestions help us improve future trainings</p>
         </div>
 
         <div class="form-group">
-            <label class="form-label en">Any suggestions or comments? (Optional)</label>
-            <label class="form-label bn bengali d-none">কোন পরামর্শ বা মন্তব্য? (ঐচ্ছিক)</label>
-            <textarea name="comments" class="form-control" rows="6" placeholder="Share your thoughts... / আপনার মতামত শেয়ার করুন..."></textarea>
+            <label class="form-label">Any additional comments or suggestions? (Optional)</label>
+            <textarea name="comments" class="form-control" rows="6" placeholder="Share your thoughts, suggestions, or concerns..."></textarea>
         </div>
 
         <!-- Submit Button -->
         <button type="submit" class="btn-submit">
-            <span class="en">✓ Submit Survey – Thank You!</span>
-            <span class="bn bengali d-none">✓ জমা দিন – ধন্যবাদ!</span>
+            ✓ Submit Survey – Thank You!
         </button>
 
     </form>
@@ -1939,31 +1885,20 @@
 
 </main>
 <script>
-// Language Toggle
-function toggleLang() {
-    document.querySelectorAll('.en, .bn').forEach(el => {
-        el.classList.toggle('d-none');
-    });
-    const btn = document.getElementById('langBtn');
-    const currentText = btn.querySelector('span:last-child');
-    currentText.textContent = currentText.textContent.includes('বাংলা') ? 'English' : 'বাংলা';
-}
-
 // Dark Mode Toggle
 function toggleDark() {
     document.body.classList.toggle('dark-mode');
     const isDark = document.body.classList.contains('dark-mode');
     const icon = document.getElementById('themeIcon');
     const btn = document.getElementById('darkBtn');
-    const text = btn.querySelector('span:last-child');
     
     if (isDark) {
         icon.textContent = '☀️';
-        text.textContent = 'Light';
+        btn.innerHTML = '<span id="themeIcon">☀️</span> <span>Light Mode</span>';
         localStorage.setItem('theme', 'dark');
     } else {
         icon.textContent = '🌙';
-        text.textContent = 'Dark';
+        btn.innerHTML = '<span id="themeIcon">🌙</span> <span>Dark Mode</span>';
         localStorage.setItem('theme', 'light');
     }
 }
@@ -1974,7 +1909,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (savedTheme === 'dark') {
         document.body.classList.add('dark-mode');
         document.getElementById('themeIcon').textContent = '☀️';
-        document.getElementById('darkBtn').querySelector('span:last-child').textContent = 'Light';
+        document.getElementById('darkBtn').innerHTML = '<span id="themeIcon">☀️</span> <span>Light Mode</span>';
     }
     
     // Animate questions on scroll
@@ -1992,18 +1927,16 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Progress Bar on Scroll
+// Progress Bar
 window.addEventListener('scroll', () => {
     const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrolled = (window.scrollY / windowHeight) * 100;
     document.getElementById('progressBar').style.width = scrolled + '%';
 });
 
-// Form Validation Enhancement
+// Form Validation
 const form = document.getElementById('surveyForm');
 form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
     const requiredFields = form.querySelectorAll('[required]');
     let allFilled = true;
     
@@ -2020,11 +1953,10 @@ form.addEventListener('submit', (e) => {
         }
     });
     
-    if (allFilled) {
-        // Submit the form
-        form.submit();
-    } else {
-        alert('Please answer all required questions / দয়া করে সমস্ত প্রয়োজনীয় প্রশ্নের উত্তর দিন');
+    if (!allFilled) {
+        e.preventDefault();
+        alert('Please answer all required questions before submitting.');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 });
 
