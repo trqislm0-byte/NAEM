@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Transfer System Inventory (LTSI) - Model Questionnaire</title>
+    <style>
+        :root {
+            --primary-color: #004c99; /* Deep Blue */
+            --secondary-color: #f4f4f4; /* Light Gray Background */
+            --accent-color: #ff8c00; /* Orange Accent */
+            --white: #ffffff;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--secondary-color);
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 15px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+            margin-top: 30px;
+            font-size: 1.5em;
+        }
+
+        .category-title {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            display: inline-block;
+        }
+        
+        .subcategory-title {
+            color: #555;
+            font-weight: bold;
+            margin-left: 10px;
+            margin-bottom: 5px;
+            font-size: 1em;
+        }
+
+        .question-row {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--border-color);
+            align-items: center;
+        }
+
+        .question-text {
+            flex: 1 1 50%;
+            padding-right: 20px;
+            font-weight: normal;
+        }
+        
+        .question-text strong {
+            display: inline-block;
+            min-width: 45px; /* Ensures Q-number aligns nicely */
+            color: var(--primary-color);
+        }
+
+        .likert-scale {
+            flex: 1 1 45%;
+            display: flex;
+            justify-content: space-between;
+            max-width: 450px;
+            margin-top: 10px;
+        }
+
+        .scale-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            font-size: 0.8em;
+            color: #555;
+            flex: 1;
+        }
+
+        .scale-option input[type="radio"] {
+            margin-bottom: 5px;
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+            accent-color: var(--accent-color);
+        }
+
+        .scale-header {
+            display: none;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 0.8em;
+            color: #000;
+        }
+        
+        /* Desktop view adjustments */
+        @media (min-width: 768px) {
+            .scale-header {
+                display: flex;
+                padding-right: 5px;
+            }
+            .scale-header div {
+                width: 450px; /* Match the max-width of .likert-scale */
+                display: flex;
+                justify-content: space-between;
+                text-align: center;
+            }
+            .scale-header span {
+                flex: 1;
+                padding: 0 5px;
+            }
+            .likert-scale {
+                margin-top: 0;
+            }
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 40px;
+        }
+
+        .submit-btn:hover {
+            background-color: #cc7000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Learning Transfer System Inventory (LTSI) Questionnaire</h1>
+        <p>Please respond to each statement using the scale provided below.</p>
+        <div style="display: flex; justify-content: space-between; margin-top: 20px; font-size: 0.9em;">
+            <div><strong>Date:</strong> <input type="date" id="dateInput"></div>
+            <div><strong>Name:</strong> <input type="text" id="nameInput" placeholder="Enter Name"></div>
+        </div>
+    </header>
+
+    <div class="scale-header">
+        <div style="width: 450px; margin-left: auto;">
+            <span>Strongly Disagree</span>
+            <span>Disagree</span>
+            <span>Neutral</span>
+            <span>Agree</span>
+            <span>Strongly Agree</span>
+        </div>
+    </div>
+
+    <form id="ltsiForm">
+        
+        <h2>1. Independent Variables (Direct predictors of Training Effectiveness)</h2>
+        
+        <div class="category-section">
+            <h3 class="category-title">A. Program Content Quality (PCQ)</h3>
+            <p class="subcategory-title">Questions that relate to what the program teaches, its relevance, and clarity.</p>
+            <div id="pcq-questions"></div>
+        </div>
+
+        <div class="category-section">
+            <h3 class="category-title">B. Program Instructional Method (PIM)</h3>
+            <p class="subcategory-title">Questions about how the training is delivered.</p>
+            <div id="pim-questions"></div>
+        </div>
+
+        <div class="category-section">
+            <h3 class="category-title">C. Trainer Competence (TC)</h3>
+            <p class="subcategory-title">Questions about trainer knowledge, support, and ability.</p>
+            <div id="tc-questions"></div>
+        </div>
+
+        <div class="category-section">
+            <h3 class="category-title">D. Training Environment (TE)</h3>
+            <p class="subcategory-title">Questions about supportive atmosphere, obstacles, or confidence.</p>
+            <div id="te-questions"></div>
+        </div>
+
+        <div class="category-section">
+            <h3 class="category-title">E. Training Facilities (TF)</h3>
+            <p class="subcategory-title">Questions about availability of tools, time, opportunities.</p>
+            <div id="tf-questions"></div>
+        </div>
+        
+        <hr style="border: 0; height: 1px; background: #ccc; margin: 40px 0;">
+
+        <h2>2. Moderators (Support Systems affecting Transfer)</h2>
+        
+        <div class="category-section">
+            <h3 class="category-title">A. Peer Support (PS)</h3>
+            <div id="ps-questions"></div>
+        </div>
+
+        <div class="category-section">
+            <h3 class="category-title">B. Trainer Support (TS)</h3>
+            <div id="ts-questions"></div>
+        </div>
+
+        <div class="category-section">
+            <h3 class="category-title">C. Institutional Support (IS)</h3>
+            <div id="is-questions"></div>
+        </div>
+        
+        <button type="submit" class="submit-btn">Submit Questionnaire</button>
+    </form>
+</div>
+
+<div id="modal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.6); justify-content:center; align-items:center;">
+    <div class="modal-content" style="background:white; padding:30px; border-radius:8px; text-align:center;">
+        <h2 style="color:#28a745;">Submission Acknowledged</h2>
+        <p>Thank you for completing the questionnaire!</p>
+        <button class="close-btn" onclick="document.getElementById('modal').style.display='none'" style="margin-top:20px; padding:10px 20px; background-color:#007bff; color:white; border:none; border-radius:4px; cursor:pointer;">Close</button>
+    </div>
+</div>
+
+<script>
+    // Data Structure combining Q-ID and text
+    const questionnaireData = {
+        'pcq-questions': [
+            {id: "Q1", text: "Prior to this training, I knew how the program was supposed to affect my performance."},
+            {id: "Q2", text: "Before this training, I had a good understanding of how it would fit my job-related development."},
+            {id: "Q3", text: "I knew what to expect from this training before it began."},
+            {id: "Q9", text: "I believe this training will help me do my current job better."},
+            {id: "Q43", text: "The instructional aids (equipment, illustrations, etc.) used in this training are very similar to real things I use on the job."},
+            {id: "Q44", text: "The methods used in this training are very similar to how we do it on the job."},
+            {id: "Q46", text: "It is clear to me that the people conducting this training understand how I will use what I learn."}
+        ],
+        'pim-questions': [
+            {id: "Q48", text: "The way the trainer(s) taught the material made me feel more confident I could apply it in my job."},
+            {id: "Q47", text: "The trainer(s) used a lot of examples that showed me how I could use my learning on the job."},
+            {id: "Q45", text: "I like the way this training seems so much like my job."}
+        ],
+        'tc-questions': [
+            {id: "Q46", text: "It is clear to me that the people conducting this training understand how I will use what I learn."},
+            {id: "Q47", text: "The trainer(s) used a lot of examples that showed me how I could use my learning on the job."},
+            {id: "Q48", text: "The way the trainer(s) taught the material made me feel more confident I could apply it in my job."}
+        ],
+        'te-questions': [
+            {id: "Q4", text: "I never doubt my ability to use newly learned skills on the job."},
+            {id: "Q5", text: "I am sure I can overcome obstacles on the job that hinder my use of new skills or knowledge."},
+            {id: "Q6", text: "At work, I feel very confident using what I learned in training even in the face of difficult or taxing situations."},
+            {id: "Q37", text: "I will be able to try out this training on my job."},
+            {id: "Q38", text: "The resources needed to use what I learned in this training will be available to me."}
+        ],
+        'tf-questions': [
+            {id: "Q39", text: "I will get opportunities to use this training on my job."},
+            {id: "Q40", text: "I do not have time to try to use this training on my job."},
+            {id: "Q41", text: "Trying to use this training will take too much energy away from my other work."},
+            {id: "Q42", text: "There is too much happening at work right now for me to try to use this training."}
+        ],
+        'ps-questions': [
+            {id: "Q25", text: "My colleagues will appreciate my using the new skills I learned in this training."},
+            {id: "Q26", text: "My colleagues will encourage me to use the skills I have learned in this training."},
+            {id: "Q27", text: "At work, my colleagues will expect me to use what I learned in this training."},
+            {id: "Q28", text: "Experienced employees in my group ridicule others when they use techniques they learn in training."},
+            {id: "Q29", text: "People in my group are not willing to put in the effort to change the way things are done."},
+            {id: "Q30", text: "My workgroup is reluctant to try new ways of doing things."}
+        ],
+        'ts-questions': [
+            {id: "Q19", text: "My supervisor will meet with me regularly to work on problems I may be having in trying to use this training."},
+            {id: "Q20", text: "My supervisor will meet with me to discuss ways to apply this training on the job."},
+            {id: "Q21", text: "My supervisor will help me set realistic goals for job performance based on my training."}
+        ],
+        'is-questions': [
+            {id: "Q31", text: "Successfully using this training will help me get a salary increase."},
+            {id: "Q32", text: "If I use this training I am more likely to be rewarded."},
+            {id: "Q33", text: "I am likely to receive some recognition if I use my newly learned skills on the job."},
+            {id: "Q34", text: "Employees in this organization will be penalized for not using what they have learned in this training."},
+            {id: "Q35", text: "If I do not use new techniques taught in this training I will be reprimanded."},
+            {id: "Q36", text: "If I do not use this training I will be cautioned about it."}
+        ]
+    };
+    
+    // Likert scale labels and values
+    const likertScaleLabels = [
+        { label: "Strongly Disagree", value: 1 },
+        { label: "Disagree", value: 2 },
+        { label: "Neutral", value: 3 },
+        { label: "Agree", value: 4 },
+        { label: "Strongly Agree", value: 5 }
+    ];
+
+    // Function to render the questions
+    function renderQuestionnaire() {
+        for (const [id, questions] of Object.entries(questionnaireData)) {
+            const container = document.getElementById(id);
+            if (!container) continue;
+
+            questions.forEach(q => {
+                const row = document.createElement('div');
+                row.className = 'question-row';
+
+                // Question Text (with ID)
+                const textDiv = document.createElement('div');
+                textDiv.className = 'question-text';
+                textDiv.innerHTML = `<strong>${q.id}:</strong> ${q.text}`;
+                row.appendChild(textDiv);
+
+                // Likert Scale Options
+                const scaleDiv = document.createElement('div');
+                scaleDiv.className = 'likert-scale';
+
+                likertScaleLabels.forEach(scale => {
+                    const label = document.createElement('label');
+                    label.className = 'scale-option';
+                    
+                    const radio = document.createElement('input');
+                    radio.type = 'radio';
+                    radio.name = q.id;
+                    radio.value = scale.value;
+                    
+                    label.appendChild(radio);
+                    
+                    const span = document.createElement('span');
+                    span.textContent = scale.label.split(' ').join('\n'); // Add line breaks for display
+                    label.appendChild(span);
+
+                    scaleDiv.appendChild(label);
+                });
+
+                row.appendChild(scaleDiv);
+                container.appendChild(row);
+            });
+        }
+    }
+
+    // Initialize the form
+    renderQuestionnaire();
+
+    // Handle form submission
+    document.getElementById('ltsiForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // This is a minimal submission handler for demonstration.
+        const formData = new FormData(e.target);
+        const data = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+
+        console.log("Submitted Data:", data);
+        
+        // Show success modal
+        document.getElementById('modal').style.display = 'flex';
+    });
+</script>
+
+</body>
+</html>
